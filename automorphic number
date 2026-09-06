@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main {
+    // Checks if a number is automorphic
+    static int automorphic(int n) {
+        long square = (long) n * n; // Use long to prevent integer overflow for large numbers
+        String squareStr = String.valueOf(square);
+        String numStr = String.valueOf(n);
+        
+        // An automorphic number's square must END with the number itself
+        if (squareStr.endsWith(numStr)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        
+        // Clean the input string and parse it
+        s = s.replace("A =", "").trim();
+        int n = Integer.parseInt(s);
+        
+        System.out.println(automorphic(n));
+    }
+}
