@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main {
+
+    public static long bitoDecimal(String s) {
+        long sum = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            int d = s.charAt(i) - '0';
+            sum = sum * 2 + d;
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+
+        s = s.replace("A = \"", "")
+             .replace("\"", "")
+             .trim();
+
+        System.out.println(bitoDecimal(s));
+    }
+}
