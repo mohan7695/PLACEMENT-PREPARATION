@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main{
+  public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    String k=sc.nextLine();
+    k=k.replace("A = ","").trim();
+    int n=Integer.parseInt(k);
+
+    System.out.println(reverseDigit(n));
+  }
+  static int reverseDigit(int n){
+        boolean t= n <0;
+        if(t){
+          n=-n;
+        }
+        int reverse=0;
+        
+        while(n > 0){
+          int d=(n%10);
+       
+          reverse=+(reverse*10)+d;
+         
+          n/=10;
+        }
+        if(t){
+          reverse=-reverse;
+          return reverse;
+        }
+        return reverse;
+  }
+}
