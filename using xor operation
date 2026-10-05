@@ -1,0 +1,17 @@
+import java.util.*;
+class Main{
+  public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    
+    String s=sc.nextLine();
+    
+    s=s.replace("A = ","").replace("[","").replace("]","");
+    String[] parts = s.split(",");
+    int d=0;
+    for(int i=0;i<parts.length;i++){
+      int n=Integer.parseInt(parts[i].trim());
+      d^=n;
+    }
+    System.out.println(d);
+  }
+}
