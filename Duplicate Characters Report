@@ -1,0 +1,32 @@
+import java.util.*;
+public class Main{
+  public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    
+    String s=sc.nextLine();
+       s = s.replace("S = ", "").replace("\"", "").trim();
+    
+    System.out.println(duplicate(s));
+  }
+  
+  
+  
+  public static List<String> duplicate(String s){ 
+     
+     Map<Character,Integer> map = new HashMap<>();
+     
+     List<String> list= new ArrayList<>();
+     
+     for(char ch : s.toCharArray()){
+     //  if(ch != ' '){
+       map.put(ch,map.getOrDefault(ch,0)+1);
+     
+     }
+      for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 1) {
+                list.add("\""+entry.getKey() +" "+ entry.getValue()+"\"");
+            }
+        }
+     return list;
+}
+}
