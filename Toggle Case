@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        if (sc.hasNextLine()) {
+            String rawInput = sc.nextLine(); // Example: S = "HeLLo9!"
+            
+            // Find the positions of the first and last double quotes
+            int firstQuote = rawInput.indexOf('"');
+            int lastQuote = rawInput.lastIndexOf('"');
+            
+            // Extract only what is inside the quotes (HeLLo9!)
+            if (firstQuote != -1 && lastQuote != -1 && firstQuote < lastQuote) {
+                String s = rawInput.substring(firstQuote + 1, lastQuote);
+                
+                // Toggle the case and print wrapped in quotes
+                System.out.println("\"" + toggleCase(s) + "\"");
+            } else {
+                // Fallback case if no quotes are present in the input
+                System.out.println("\"" + toggleCase(rawInput) + "\"");
+            }
+        }
+    }
+
+    public static String toggleCase(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            char ch = chars[i];
+            if (ch >= 'a' && ch <= 'z') {
+                chars[i] = (char) (ch - 32);
+            } else if (ch >= 'A' && ch <= 'Z') {
+                chars[i] = (char) (ch + 32);
+            }
+        }
+        return new String(chars);
+    }
+}
